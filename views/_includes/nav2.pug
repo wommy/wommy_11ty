@@ -1,0 +1,15 @@
+#mainNav
+	nav
+		each post in ["wommy.io","brand","clients","resume","feed","grid","media","test"]
+			- let postUrl = (post == 'wommy.io') ? '/' : '/'+post+'/'
+			a(class=(page.url == postUrl ? 'active' : '') href= postUrl): h2 #{post}
+	nav#social
+		span Contact
+		- let email = "tom@technomad.media"
+		a(href='mailto:'+email+'?Subject=from wommy.io' target="_blank")
+			img.social(src='/_static/email.svg')
+			h2= email
+		each val, key in {"facebook":"froggie92","twitter":"froggie92","instagram":"wommytilliams"}
+			a(href onclick="noDiscriminate('"+key+"','"+val+"')")
+				img.social(src='/_static/'+key+'.svg')
+				h2= key

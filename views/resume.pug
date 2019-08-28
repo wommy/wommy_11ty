@@ -1,0 +1,331 @@
+extends /_template.pug
+
+block content
+	div
+		h3 nav
+		ol
+			each item, index in resume
+				if index == 'expertise'
+					li
+						a(href= '#'+ index) #{index}
+					ol
+						each item, index in resume.expertise
+							li
+								a(href= '#'+ index) #{index}
+				else 
+					li
+						a(href= '#'+ index) #{index}
+
+	article
+		//
+			<a href="../assets/resume-tommyWilliams-headshot.pdf" target="_blank">view in a new tab</a> -  <a href="../assets/resume-tommyWilliams-headshot.pdf" download>download</a>
+		h3#contact contact
+		each item, title in resume.contact
+			p
+				span= title + ": "
+				span= item
+		p.indent1
+			| portfolio: 
+			a(href='http://wommytilliams.com') wommytilliams.com
+			br
+			| email:   
+			a(href='mailto:tom@technomad.media') tom@technomad.media
+		//
+			phone:   [312 818 9011](tel:312-818-9011)
+			address:   [1426 W Chestnut #1R Chicago IL 60642](https://www.google.com/maps/place/1426+W+Chestnut+St,+Chicago,+IL+60642/@41.898204,-87.663567,17z/data=!4m2!3m1!1s0x880fd2d37995e65f:0x4a79f787069b8ac)
+		p.indent1
+			em four year goal:
+			br
+			strong senior full-stack developer
+			|  @ 
+			br
+			| a 
+			strong media
+			|  or 
+			strong ecommerce
+			|  company
+		p.indent1#hobbies hobbies
+		ul.indent1
+			li kungfu - 1 year
+			li biking - 6
+		h3#education education
+		each arr, key in resume.education
+			p
+				strong= key
+			each value in arr
+				p= value
+		p.indent1
+			strong depaul graduated 2015
+			br
+			| bachelor of arts: 
+			a(href='#psych') psychology
+			br
+			| minor: interactive social media
+			br
+			| dean's list: 5 quarters
+		p.indent1
+			strong columbia college ( 2 years )
+			br
+			| film + music composition
+			br
+			| honor roll: 2 semesters
+		h3#experience experience
+		each arr, key in resume.experience
+			p
+				strong= key
+			each val in arr
+				p.indent1= val
+		p
+			strong solution people
+		p.indent1
+			| managed 30+ websites
+			br
+			|     redesign
+			br
+			|     created, edited, pushed content
+			br
+			|     contact: 
+			a(href='mailto:solutionman@solutionpeople.com') gerald haman
+		p
+			strong branding
+		p.indent1
+			| froggie92
+			br
+			| wommy tilliams
+			br
+			| technomad
+		p
+			strong clients
+		p.indent1 x, y, z
+		h3#ui-ux ui-ux - minor in school
+		each item in resume.expertise.design
+			if typeof item === 'object'
+				each arr, key in item
+					p
+						strong= key
+					ul
+						each val in arr
+							li= val
+			else
+				p
+					strong= item
+		p
+			strong ?# of projects
+		p
+			strong mockups / wireframes / site-mapping
+		ul
+			li
+				a(href='https://balsamiq.com/') balsamiq
+			li
+				a(href='http://www.axure.com/') axure
+			li
+				a(href='http://bohemiancoding.com/sketch/') sketch
+			li
+				a(href='https://atomic.io/') atomic
+			li adobe - illustrator / photoshop
+		p
+			strong physical media
+		ul
+			li
+				a(href='http://en.wikipedia.org/wiki/Paper_prototyping') paper prototypes
+			li
+				a(href='http://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction') human-computer interaction
+		p
+			a(href='http://en.wikipedia.org/wiki/Rapid_prototyping') rapid prototyping
+		ul
+			li agile
+			li scrum
+		//
+			TODO: butts
+			google
+			:: agile
+			http://agilemanifesto.org/
+			http://www.allaboutagile.com/what-is-agile-10-key-principles/
+			http://en.wikipedia.org/wiki/Agile_software_development
+			http://agilemethodology.org/
+		p
+			strong front end / back end :: gui / db => pass to dev
+		h3#front frontend - started 2011
+		each array, title in resume.expertise.development_frontend
+			p= title
+			each subarray in array
+				li
+					each item in subarray
+						span= item
+						|  / 
+		p HTML5
+		ul
+			li
+				a(href='http://liquidmarkup.org/') liquid
+				|  / 
+				a(href='http://jade-lang.com/') jade
+				|  / 
+				a(href='http://haml.info/') haml
+				|  / 
+				a(href='http://slim-lang.com/') slim
+			li
+				a(href='http://getbootstrap.com/') bootstrap
+				|  / 
+				a(href='http://foundation.zurb.com/') foundation
+		p CSS3
+		ul
+			li
+				a(href='http://sass-lang.com/') sass / scss
+				|  - 
+				a(href='http://compass-style.org/') compass
+			li
+				a(href='http://lesscss.org/') less
+				|  / 
+				a(href='http://learnboost.github.io/stylus/') stylus
+		p JAVASCRIPT
+		ul
+			li
+				a(href='https://jquery.com/') jquery
+				|  / 
+				a(href='http://coffeescript.org/') coffeescript
+			li
+				a(href='http://www.json.org/') json
+				|  / 
+				a(href='http://en.wikipedia.org/wiki/Ajax_%28programming%29') ajax
+				|  / 
+				a(href='http://en.wikipedia.org/wiki/Asynchronous_module_definition') amd
+			li
+				a(href='http://jshint.com/') js hint
+			li
+				a(href='http://threejs.org/') threejs
+		h3#back backend languages / frameworks
+		each array, title in resume.expertise.development_backend
+			p= title
+			ul
+				if array[0].constructor === Array
+					each subarray in array
+						li
+							each item in subarray
+								span= item
+								|  / 
+				else
+					li
+						each item in array
+							span= item
+							|  / 
+
+		p PHP
+		ul
+			li
+				a(href='https://wordpress.org/') wordpress
+				|  / 
+				a(href='https://www.drupal.org/') drupal
+				|  / 
+				a(href='http://www.joomla.org/') joomla
+				|  / 
+				a(href='http://magento.com/') magento
+			li
+				a(href='http://laravel.com/') laravel
+				|  / 
+				a(href='http://symfony.com/') symphony
+				|  + 
+				a(href='http://sylius.org/') sylius
+				|  / 
+				a(href='http://framework.zend.com/') zend
+		p RUBY
+		ul
+			li
+				a(href='http://rubyonrails.org/') rails
+				|  / 
+				a(href='http://jekyllrb.com/') jekyll
+		p PYTHON
+		ul
+			li
+				a(href='https://www.djangoproject.com/') django
+				|  / 
+				a(href='http://flask.pocoo.org/') flask
+				|  / 
+				a(href='http://hyde.github.io/') hyde
+				|  / 
+				a(href='http://blog.getpelican.com/') pelican
+		p JAVASCRIPT
+		ul
+			li
+				a(href='https://angularjs.org/') angular
+				|  / 
+				a(href='http://backbonejs.org/') backbone
+				|  / 
+				a(href='http://emberjs.com/') ember
+				|  / 
+				a(href='http://knockoutjs.com/') knockout
+				|  / 
+				a(href='https://www.meteor.com/') meteor
+				|  / 
+				a(href='http://phantomjs.org/') phantomjs
+			li
+				a(href='https://nodejs.org/') node
+				ul
+					li
+						a(href='http://expressjs.com/') express
+					li
+						a(href='https://ghost.org/') ghost
+			li
+				a(href='https://facebook.github.io/react/') react
+				|  + 
+				a(href='https://facebook.github.io/flux/') flux
+		h3#database database
+		ul
+			li
+				each link, title in resume.expertise.database
+					a(href= link) #{title}
+					|  / 
+		ul
+			li
+				a(href='http://en.wikipedia.org/wiki/SQL') mysql
+				|  / 
+				a(href='http://www.postgresql.org/about/') postgresql
+				|  / 
+				a(href='http://en.wikipedia.org/wiki/NoSQL') nosql
+				ul
+					li
+						a(href='https://www.mongodb.org/') mongo
+		h3#deployment deployment
+		ul
+			each item in resume.expertise.deployment
+				li
+					each link, title in item
+						a(href= link) #{title}
+						|  / 	
+		ul
+			li
+				a(href='http://requirejs.org/') require
+				|  / 
+				a(href='http://browserify.org/') browserify
+				|  / 
+				a(href='http://www.commonjs.org/') common
+				|  / 
+				a(href='https://www.npmjs.com/') npm
+				|  / 
+				a(href='http://bower.io/') bower
+			li
+				a(href='http://gruntjs.com/') grunt
+				|  / 
+				a(href='http://gulpjs.com/') gulp
+			li
+				a(href='http://yeoman.io/') yeoman
+				|  / 
+				a(href='https://www.vagrantup.com/') vagrant
+				|  / 
+				a(href='https://getcomposer.org/') composer
+				|  / 
+				a(href='http://capistranorb.com/') capistrano
+		h3#other other
+		ul
+			li
+				each item, index in resume.expertise.other
+					if index == 'psych'
+						li 
+							span(id= index) #{index}
+						ul
+							each item in resume.expertise.other.psych
+								li= item
+					else if index == 'ftp'
+						a(href= item) #{index}
+					else
+						a(href= item) #{index}
+						|	/ 

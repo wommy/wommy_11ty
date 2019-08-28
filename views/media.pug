@@ -1,0 +1,30 @@
+extends /_template.pug
+
+block content
+	article(id= media.cafp.title)
+		h2
+			a(href= '#'+media.cafp.title)= media.cafp.title
+		iframe(src= media.cafp.src height='264' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen)
+		each item in media.cafp.content
+			p= item
+
+	article(id= media.wingchun.title)
+		h2
+			a(href= '#'+media.wingchun.title)= media.wingchun.title
+		each src, index in media.wingchun.videos
+			h3= index
+			iframe(width='560', height='315', src= src, frameborder='0', allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='')
+
+	article(id= media.jorris.title)
+		h2
+			a(href= '#'+media.jorris.title)= media.jorris.title
+		p= media.jorris.subtitle
+		each src, index in media.jorris.videos
+			h3= index
+			iframe(src= src title= index width="660" height="295" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="")
+
+	article(id= media.popcornbulb.title)
+		h2
+			a(href= '#'+media.popcornbulb.title)= media.popcornbulb.title
+		p= media.popcornbulb.subtitle
+		iframe(src= media.popcornbulb.src width="660" height="371" frameborder="0" allowfullscreen="")

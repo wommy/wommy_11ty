@@ -1,0 +1,51 @@
+nav#mobileNav(onclick="toggle( 'toggleMe' )")
+	img#hamburger(src='static/hamburger.svg')
+	nav#toggleMe(style="display:none;")
+		a(href="index.html" class="selected") home
+		span Experience
+		a(href="experience/branding.html") Branding
+		a(href="experience/clients.html") Clients
+		a(href="experience/resume.html") Resume
+		span Experiments
+		a(href="experiments/feed.html") Feed
+		a(href="experiments/grid.html") Grid
+		a(href="media.html") Media
+div#mainNav
+	nav
+		h2(class="selected")
+			a(href="/" class="selected") Home
+		h2
+			span Experience
+			nav
+				h2
+					a(href="/brand") Branding
+				h2
+					a(href="/clients") Clients
+				h2
+					a(href="/resume") Resume
+		h2
+			span Experiments
+			nav
+				h2
+					a(href="/feed") Feed
+				h2
+					a(href="/grid") Grid
+		h2
+			a(href="/media") Media
+	nav#social
+		span Contact
+		a(href='mailto:tom@technomad.media?Subject=Job | from wommytilliams.com' target="_blank")
+			img.social(src='/__static/email.svg')
+			h2 tom@technomad.media
+		a(href onclick=" noDiscriminate(' https://www.facebook.com/Froggie92 ') ")
+			img.social(src='/__static/facebook.svg')
+			h2 facebook
+		a(href onclick=" noDiscriminate(' http://twitter.com/froggie92 ') ")
+			img.social(src='/__static/twitter.svg')
+			h2 twitter
+		a(href onclick=" noDiscriminate(' https://plus.google.com/u/0/118102255716845472363/posts ') ")
+			img.social(src='/__static/google-plus.svg')
+			h2 google+
+		a(href onclick=" noDiscriminate(' https://instagram.com/wommytilliams/ ') ")
+			img.social(src='/__static/instagram.svg')
+			h2 instagram

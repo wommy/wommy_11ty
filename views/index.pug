@@ -1,0 +1,30 @@
+extends /_template.pug
+
+block content
+	article(id='')
+		img.wommyImg(src="_static/wommyM.jpg")
+		h2 welcome to my portfolio
+		p feel free to check out
+		a.block.indent1(href="media") my media
+		a.block.indent1(href="clients") my clients
+		p.indent1 my experiments
+		a.block.indent2(href="feed") feed
+		a.block.indent2(href="grid") grid
+	article#inspiration
+		h2
+			a(href="#inspiration") inspiration / philosophy
+		div
+			p words
+			ul(style='list-style-type:none;')
+				each val in ['simple','concise','clean','eloquent','minimal','transparency']
+					li= val
+		div
+			p websites
+			each content,src in { "facsrv.cdm.depaul.edu/~cmiller": "a teacher of mine, one of the first websites i encountered that put function over form", "itemsandthings.com": "one of my favorite music labels. their brand's dedication to minimalism is conveyed thoroughly, from their music to their web design.", "wanna-rework.de": "one of the musicians websites on the above label"}
+				div.indent1
+					a(href= 'https://'+src) #{src}
+					p.subtext= '- '+content
+		div
+			p quotes
+			a(href="//www.reddit.com/r/terencemckenna/comments/32rp8t/a_quote_that_really_grabbed_me_from_terences/")
+				img(src="//i.imgur.com/0MAncfi.png" width="90%")
